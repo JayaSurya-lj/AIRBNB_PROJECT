@@ -19,6 +19,7 @@ const User = require("./models/user.js");
 const listingRoute = require("./routes/listing.js");
 const reviewRoute = require("./routes/review.js");
 const userRoute = require("./routes/user.js");
+const searchRoute = require("./routes/search.js");
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
@@ -36,8 +37,8 @@ app.use(express.static(path.join(__dirname, "/public")));
 //     next();
 // });
 
-// const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
-const dbUrl = process.env.ATLASDB_URL;
+const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+// const dbUrl = process.env.ATLASDB_URL;
 
 main()
     .then(() => {
@@ -48,7 +49,8 @@ main()
     });
 
 async function main(){
-    await mongoose.connect(dbUrl);
+    // await mongoose.connect(dbUrl);
+    await mongoose.connect(MONGO_URL);
 }
 
 const checkAccess = ("/api",(req, res , next) =>{
@@ -65,7 +67,7 @@ app.get("/api", checkAccess , (req, res) =>{
 });
 
 const store = MongoStore.create({
-    mongoUrl: dbUrl,
+    mongoUrl: MONGO_URL,
     crypto:{
         secret: process.env.SECRET,
     },
@@ -122,6 +124,8 @@ app.get("/demouser", async(req, res) =>{
     res.send(registeredUser);
 });
 
+
+app.use("/", searchRoute);
 
 //ROUTER FOR LISTING
 app.use("/listings", listingRoute);
