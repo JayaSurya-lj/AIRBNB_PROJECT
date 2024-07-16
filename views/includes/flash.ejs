@@ -1,5 +1,5 @@
 <% if(success && success.length) { %>
-    <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+    <div id="success-alert" class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
         <%= success %>
         <button
         type="button"
@@ -11,7 +11,7 @@
 <% } %>
 
 <% if(error && error.length) { %>
-    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+    <div id="error-alert" class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
         <%= error %>
         <button
         type="button"
@@ -22,3 +22,26 @@
     </div>
 <% } %>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+      var successAlert = document.getElementById('success-alert');
+      if (successAlert) {
+        successAlert.classList.remove('show');
+        successAlert.classList.add('fade');
+        setTimeout(function() {
+          successAlert.style.display = 'none';
+        }, 150);
+      }
+      
+      var errorAlert = document.getElementById('error-alert');
+      if (errorAlert) {
+        errorAlert.classList.remove('show');
+        errorAlert.classList.add('fade');
+        setTimeout(function() {
+          errorAlert.style.display = 'none';
+        }, 150);
+      }
+    }, 3000); // 3 seconds
+  });
+</script>

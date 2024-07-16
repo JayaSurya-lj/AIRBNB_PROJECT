@@ -20,6 +20,7 @@ const listingRoute = require("./routes/listing.js");
 const reviewRoute = require("./routes/review.js");
 const userRoute = require("./routes/user.js");
 const searchRoute = require("./routes/search.js");
+const { log } = require('console');
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));

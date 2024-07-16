@@ -19,7 +19,7 @@ router.get("/listings/search", wrapAsync( async(req, res) =>{
             { country: { $regex: query, $options: 'i' } }
           ],
         });
-        console.log(allListings);
+        // console.log(allListings);
         res.render('listings/index.ejs', { allListings });
       } catch (err) {
         res.status(500).json({ error: err.message });
@@ -41,6 +41,26 @@ router.get("/listings/suggestions", wrapAsync(async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
+}));
+
+// Assuming you have already set up your Express app and imported necessary modules
+
+// Define your route
+router.get("/listings/category", wrapAsync(async (req, res) => {
+  try {
+      const category = req.query.q; // Retrieve the category from query parameter 'q'
+      
+      // Assuming you have a function to fetch listings based on the category
+      const allListings = await Listing.find({ categories: category });
+
+      // Render your template (e.g., index.ejs) with the listings data
+      res.render('listings/index.ejs', { allListings });
+
+  } catch (err) {
+      // Handle any errors
+      console.error("Error fetching listings:", err);
+      res.status(500).send("Error fetching listings. Please try again later.");
+  }
 }));
 
 

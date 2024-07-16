@@ -51,6 +51,52 @@
                 <div class="valid-feedback">Location looks good!</div>
                 <div class="invalid-feedback">Location should be valid</div>
             </div>
+
+            <div class="mb-3">
+                <label class="form-label">Categories</label>
+                <div class="d-flex flex-wrap">
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="checkbox" name="listing[categories][]" value="trending" id="edit-trending" <%= listing.categories.includes('trending') ? 'checked' : '' %>>
+                        <label class="form-check-label" for="edit-trending">Trending</label>
+                    </div>
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="checkbox" name="listing[categories][]" value="rooms" id="edit-rooms" <%= listing.categories.includes('rooms') ? 'checked' : '' %>>
+                        <label class="form-check-label" for="edit-rooms">Rooms</label>
+                    </div>
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="checkbox" name="listing[categories][]" value="cities" id="edit-cities" <%= listing.categories.includes('cities') ? 'checked' : '' %>>
+                        <label class="form-check-label" for="edit-cities">Cities</label>
+                    </div>
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="checkbox" name="listing[categories][]" value="castles" id="edit-castles" <%= listing.categories.includes('castles') ? 'checked' : '' %>>
+                        <label class="form-check-label" for="edit-castles">Castles</label>
+                    </div>
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="checkbox" name="listing[categories][]" value="pools" id="edit-pools" <%= listing.categories.includes('pools') ? 'checked' : '' %>>
+                        <label class="form-check-label" for="edit-pools">Pools</label>
+                    </div>
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="checkbox" name="listing[categories][]" value="camp" id="edit-camp" <%= listing.categories.includes('camp') ? 'checked' : '' %>>
+                        <label class="form-check-label" for="edit-camp">Camp</label>
+                    </div>
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="checkbox" name="listing[categories][]" value="farms" id="edit-farms" <%= listing.categories.includes('farms') ? 'checked' : '' %>>
+                        <label class="form-check-label" for="edit-farms">Farms</label>
+                    </div>
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="checkbox" name="listing[categories][]" value="arctic" id="edit-arctic" <%= listing.categories.includes('arctic') ? 'checked' : '' %>>
+                        <label class="form-check-label" for="edit-arctic">Arctic</label>
+                    </div>
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="checkbox" name="listing[categories][]" value="domes" id="edit-domes" <%= listing.categories.includes('domes') ? 'checked' : '' %>>
+                        <label class="form-check-label" for="edit-domes">Domes</label>
+                    </div>
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="checkbox" name="listing[categories][]" value="boats" id="edit-boats" <%= listing.categories.includes('boats') ? 'checked' : '' %>>
+                        <label class="form-check-label" for="edit-boats">Boats</label>
+                    </div>
+                </div>
+            </div>
             <br>
             <button class="btn btn-dark add-btn">Edit</button>
             <br> <br>
