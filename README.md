@@ -6,7 +6,7 @@ Wanderlust is a full-stack web application built using the MERN (MongoDB, Expres
 ---
 
 ## Demo
-Explore the live demo of Wanderlust: https://airbnb-project-1-wwgo.onrender.com
+Explore the live demo of Wanderlust: https://airbnb-project-1-wwgo.onrender.com/listings
 
 ---
 
